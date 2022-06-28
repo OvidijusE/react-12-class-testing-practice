@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import css from './Counter.module.css';
 
-function Counter({ title }) {
-  const [counterValue, setCounterValue] = useState(0);
+function Counter({ title, initValue = 0 }) {
+  const [counterValue, setCounterValue] = useState(initValue);
   const [hideLabel, setHideLabel] = useState(false);
 
   function handleCounterIncrement() {
@@ -10,9 +10,6 @@ function Counter({ title }) {
   }
 
   function handleCounterDecrement() {
-    if (counterValue <= 0) {
-      return;
-    }
     setCounterValue((prevState) => prevState - 1);
   }
 
@@ -25,25 +22,22 @@ function Counter({ title }) {
   }
   return (
     <div className={css.counter}>
-      {/* <h3 className={css.title}>{!hideLabel && <h3>{title}</h3>}</h3> */}
-      <div className={css.title}>
-        {!hideLabel && <h3>{title}</h3>}
+      <div className={css.title}>{!hideLabel && <h3>{title}</h3>}</div>
 
-        <h2 className={css.result}>{counterValue}</h2>
-        <div className={css.control}>
-          <button className={css.btn} onClick={handleCounterIncrement}>
-            Add
-          </button>
-          <button className={css.btn} onClick={handleCounterDecrement}>
-            Minus
-          </button>
-          <button className={css.btn} onClick={handleCounterReset}>
-            Reset
-          </button>
-          <button className={css.btn} onClick={handleHideLabel}>
-            {!hideLabel ? 'hideLabel' : 'showLabel'}
-          </button>
-        </div>
+      <h2 className={css.result}>{counterValue}</h2>
+      <div className={css.control}>
+        <button className={css.btn} onClick={handleCounterIncrement}>
+          Add
+        </button>
+        <button className={css.btn} onClick={handleCounterDecrement}>
+          Minus
+        </button>
+        <button className={css.btn} onClick={handleCounterReset}>
+          Reset
+        </button>
+        <button className={css.btn} onClick={handleHideLabel}>
+          {!hideLabel ? 'Hide' : 'Show'} Label
+        </button>
       </div>
     </div>
   );

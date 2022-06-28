@@ -1,7 +1,7 @@
 .counter {
   border: 0.01em solid gray;
   margin: 0 auto;
-  max-width: 15em;
+  max-width: 18em;
 }
 
 .result {
@@ -24,6 +24,8 @@
   color: white;
   background-color: tomato;
   border: none;
+  text-align: center;
+  display: inline-block;
 }
 
 .btn:active {
