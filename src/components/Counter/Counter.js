@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import css from './Counter.module.css';
 
-function Counter() {
+function Counter({ title }) {
   const [counterValue, setCounterValue] = useState(0);
+  const [hideLabel, setHideLabel] = useState(false);
 
   function handleCounterIncrement() {
     setCounterValue((prevState) => prevState + 1);
@@ -24,7 +25,7 @@ function Counter() {
   }
   return (
     <div className={css.counter}>
-      <h3 className={css.title}>Reps counter</h3>
+      <h3 className={css.title}>{title}</h3>
       <h2 className={css.result}>{counterValue}</h2>
       <div className={css.control}>
         <button className={css.btn} onClick={handleCounterIncrement}>
