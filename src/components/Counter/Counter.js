@@ -21,25 +21,29 @@ function Counter({ title }) {
   }
 
   function handleHideLabel() {
-    return;
+    setHideLabel((prevState) => !prevState);
   }
   return (
     <div className={css.counter}>
-      <h3 className={css.title}>{title}</h3>
-      <h2 className={css.result}>{counterValue}</h2>
-      <div className={css.control}>
-        <button className={css.btn} onClick={handleCounterIncrement}>
-          Add
-        </button>
-        <button className={css.btn} onClick={handleCounterDecrement}>
-          Minus
-        </button>
-        <button className={css.btn} onClick={handleCounterReset}>
-          Reset
-        </button>
-        <button className={css.btn} onClick={handleHideLabel}>
-          HideLabel
-        </button>
+      {/* <h3 className={css.title}>{!hideLabel && <h3>{title}</h3>}</h3> */}
+      <div className={css.title}>
+        {!hideLabel && <h3>{title}</h3>}
+
+        <h2 className={css.result}>{counterValue}</h2>
+        <div className={css.control}>
+          <button className={css.btn} onClick={handleCounterIncrement}>
+            Add
+          </button>
+          <button className={css.btn} onClick={handleCounterDecrement}>
+            Minus
+          </button>
+          <button className={css.btn} onClick={handleCounterReset}>
+            Reset
+          </button>
+          <button className={css.btn} onClick={handleHideLabel}>
+            {!hideLabel ? 'hideLabel' : 'showLabel'}
+          </button>
+        </div>
       </div>
     </div>
   );
