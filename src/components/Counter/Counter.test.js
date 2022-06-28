@@ -1,12 +1,12 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Counter from './Counter';
 
-// it should render component
+//1. it should render component
 it('should render compnent', () => {
   render(<Counter />);
 });
 
-// it should render title from props
+//2. it should render title from props
 it('should render title from props', () => {
   render(<Counter title='Reps counter' />);
   const headerEl = screen.getByRole('heading', { name: 'Reps counter' });
@@ -20,7 +20,7 @@ it('should render 4 buttons', () => {
   expect(buttonsArr.length).toBe(4);
 });
 
-// it should increase the counter by 1 after i press Add
+//3. it should increase the counter by 1 after i press Add
 it('should increase the counter by 1 after i press Add', () => {
   render(<Counter title='Reps counter' />);
   const addBtn = screen.getByRole('button', { name: 'Add' });
@@ -29,7 +29,7 @@ it('should increase the counter by 1 after i press Add', () => {
   expect(counterEl).toHaveTextContent('1');
 });
 
-// it should decrease the counter by 1 after i press Minus
+//4. it should decrease the counter by 1 after i press Minus
 it('should decrease the counter by 1 after i press minus', () => {
   render(<Counter title='Reps counter' />);
   const minusBtn = screen.getByRole('button', { name: 'Minus' });
@@ -38,7 +38,7 @@ it('should decrease the counter by 1 after i press minus', () => {
   expect(counterEl).toHaveTextContent('-1');
 });
 
-// it should hide title if i press HideLabel
+//5. it should hide title if i press HideLabel
 it('should hide title if i press Hidelabel', () => {
   render(<Counter title='Reps counter' />);
   const hideBtn = screen.getByRole('button', { name: 'Hide Label' });
@@ -47,7 +47,7 @@ it('should hide title if i press Hidelabel', () => {
   expect(titleEl).not.toBeInTheDocument();
 });
 
-//it should reset the counter after i press reset
+//6. it should reset the counter after i press reset
 it('should reset the counter after i press reset', () => {
   render(<Counter title='Reps counter' />);
   const resetBtn = screen.getByRole('button', { name: 'Reset' });
@@ -56,7 +56,7 @@ it('should reset the counter after i press reset', () => {
   expect(counterEl).toHaveTextContent('0');
 });
 
-//the hide/show button works as expected
+//7. the hide/show button works as expected
 it('the hide/show button works as expected', () => {
   render(<Counter title='Reps counter' />);
   const hideBtn = screen.getByRole('button', { name: 'Hide Label' });
