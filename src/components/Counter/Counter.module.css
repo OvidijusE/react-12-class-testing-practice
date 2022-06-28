@@ -31,3 +31,18 @@
 .btn:active {
   background-color: purple;
 }
+
+.light {
+  background-color: white;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.dark-mode-toggler {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

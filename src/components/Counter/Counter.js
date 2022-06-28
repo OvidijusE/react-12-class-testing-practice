@@ -4,6 +4,7 @@ import css from './Counter.module.css';
 function Counter({ title, initValue = 0 }) {
   const [counterValue, setCounterValue] = useState(initValue);
   const [hideLabel, setHideLabel] = useState(false);
+  const [darkMode, setDarkMode] = useState();
 
   function handleCounterIncrement() {
     setCounterValue((prevState) => prevState + 1);
@@ -23,7 +24,6 @@ function Counter({ title, initValue = 0 }) {
   return (
     <div className={css.counter}>
       <div className={css.title}>{!hideLabel && <h3>{title}</h3>}</div>
-
       <h2 className={css.result}>{counterValue}</h2>
       <div className={css.control}>
         <button className={css.btn} onClick={handleCounterIncrement}>
@@ -38,6 +38,15 @@ function Counter({ title, initValue = 0 }) {
         <button className={css.btn} onClick={handleHideLabel}>
           {!hideLabel ? 'Hide' : 'Show'} Label
         </button>
+      </div>
+      <div className={css['dark-mode-toggler']}>
+        <input
+          type='checkbox'
+          name='checkbox'
+          onClick={() => setDarkMode((prevState) => !prevState)}
+          className={`${css.light} ${css.dark}`}
+        />
+        Dark mode {!darkMode ? 'off' : 'on'}
       </div>
     </div>
   );
