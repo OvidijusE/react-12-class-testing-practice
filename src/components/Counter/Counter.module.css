@@ -1,0 +1,31 @@
+.counter {
+  border: 0.01em solid gray;
+  margin: 0 auto;
+  max-width: 15em;
+}
+
+.result {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.control {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+  margin: 0.5em;
+}
+
+.btn {
+  padding: 0.5em 2em;
+  color: white;
+  background-color: tomato;
+  border: none;
+}
+
+.btn:active {
+  background-color: purple;
+}
