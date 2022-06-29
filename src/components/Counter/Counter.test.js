@@ -63,3 +63,12 @@ it('the hide/show button works as expected', () => {
   fireEvent.click(hideBtn);
   expect(hideBtn).toHaveTextContent('Show Label');
 });
+
+//7. the hide/show button works as expected
+// it('the hide/show button works as expected', () => {
+//   render(<Counter title='Reps counter' />);
+//   const hideBtn = screen.getByText('Hide Label');
+//   fireEvent.click(hideBtn);
+//   const labelEl = screen.getByRole('heading', { name: 'Reps counter' });
+//   expect(labelEl).not.toBeVisible();
+// });
